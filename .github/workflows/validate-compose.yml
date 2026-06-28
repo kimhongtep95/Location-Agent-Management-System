@@ -1,0 +1,17 @@
+name: Platform Validation
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  validate-compose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate docker compose config
+        run: docker compose config
+
