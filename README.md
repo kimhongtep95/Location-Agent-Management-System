@@ -18,6 +18,5 @@ docker compose up --build
 
 The compose file expects the sibling repositories to exist in the same parent folder:
 
-- `../searchbugs-api`
-- `../searchbugs-web`
-
+- `../searchbugs-bug-tracking-project-management`
+- `../e-commerce-inventory-platform`
