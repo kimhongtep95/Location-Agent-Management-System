@@ -1,0 +1,46 @@
+[project]
+name = "lams-api"
+version = "0.1.0"
+description = "Location Agent Management System backend API built with FastAPI, async SQLAlchemy, and JWT auth."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "aiosqlite>=0.20.0,<1.0.0",
+  "fastapi>=0.115.0,<1.0.0",
+  "greenlet>=3.1.0,<4.0.0",
+  "pydantic-settings>=2.5.2,<3.0.0",
+  "pydantic>=2.9.2,<3.0.0",
+  "PyJWT>=2.9.0,<3.0.0",
+  "python-multipart>=0.0.12,<1.0.0",
+  "SQLAlchemy>=2.0.36,<3.0.0",
+  "uvicorn[standard]>=0.31.0,<1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "httpx>=0.28.0,<1.0.0",
+  "pytest>=8.3.3,<9.0.0",
+  "pytest-asyncio>=0.24.0,<1.0.0",
+  "ruff>=0.7.0,<1.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "A", "RUF"]
+# B008 is the idiomatic FastAPI dependency-injection pattern (Depends() in defaults).
+ignore = ["B008"]

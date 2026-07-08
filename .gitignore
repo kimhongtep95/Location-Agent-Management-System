@@ -1,2 +1,17 @@
 .DS_Store
+
+# Python / backend
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.db
+.pytest_cache/
+.ruff_cache/
 .env
+
+# Node / frontend
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
